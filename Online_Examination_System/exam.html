@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Online Examination</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+<h2>Online Examination</h2>
+
+<div id="timer">
+05:00
+</div>
+
+</div>
+
+
+<div class="container">
+
+<div class="card">
+
+<h1>Answer the Questions</h1>
+
+<form method="POST" id="examForm">
+
+{% for question in questions %}
+
+<div class="question">
+
+<h3>
+{{ loop.index }}. {{ question["question"] }}
+</h3>
+
+
+<label class="option">
+
+<input
+type="radio"
+name="{{ question['id'] }}"
+value="{{ question['option1'] }}"
+required>
+
+{{ question["option1"] }}
+
+</label>
+
+
+<label class="option">
+
+<input
+type="radio"
+name="{{ question['id'] }}"
+value="{{ question['option2'] }}">
+
+{{ question["option2"] }}
+
+</label>
+
+
+<label class="option">
+
+<input
+type="radio"
+name="{{ question['id'] }}"
+value="{{ question['option3'] }}">
+
+{{ question["option3"] }}
+
+</label>
+
+
+<label class="option">
+
+<input
+type="radio"
+name="{{ question['id'] }}"
+value="{{ question['option4'] }}">
+
+{{ question["option4"] }}
+
+</label>
+
+</div>
+
+{% endfor %}
+
+
+<button type="submit">
+Submit Examination
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+<script>
+
+let time = 5 * 60;
+
+let timer = setInterval(function() {
+
+    let minutes = Math.floor(time / 60);
+
+    let seconds = time % 60;
+
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    document.getElementById("timer").innerHTML =
+        minutes + ":" + seconds;
+
+    time--;
+
+    if (time < 0) {
+
+        clearInterval(timer);
+
+        alert("Time is over! Your exam will be submitted.");
+
+        document.getElementById("examForm").submit();
+
+    }
+
+}, 1000);
+
+</script>
+
+</body>
+
+</html>

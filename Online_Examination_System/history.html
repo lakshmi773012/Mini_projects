@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Result History</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Student Result History</h1>
+
+<table>
+
+<tr>
+
+<th>Exam</th>
+<th>Score</th>
+<th>Percentage</th>
+<th>Status</th>
+
+</tr>
+
+
+{% for result in results %}
+
+<tr>
+
+<td>Online Exam {{ loop.index }}</td>
+
+<td>
+{{ result["score"] }} / {{ result["total"] }}
+</td>
+
+<td>
+{{ result["percentage"] }}%
+</td>
+
+<td>
+
+{% if result["status"] == "PASS" %}
+
+<span class="pass">PASS</span>
+
+{% else %}
+
+<span class="fail">FAIL</span>
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/performance">
+<button>View Performance</button>
+</a>
+
+<a href="/">
+<button>Dashboard</button>
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

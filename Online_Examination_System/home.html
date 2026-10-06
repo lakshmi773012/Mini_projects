@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="navbar">
+
+<h2>Online Examination System</h2>
+
+<a href="/logout">Logout</a>
+
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Welcome, {{ username }}</h1>
+
+<p>Choose an option</p>
+
+<div class="dashboard-buttons">
+
+<a href="/instructions">
+<button>Start Examination</button>
+</a>
+
+<a href="/history">
+<button>Result History</button>
+</a>
+
+<a href="/performance">
+<button>My Performance</button>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

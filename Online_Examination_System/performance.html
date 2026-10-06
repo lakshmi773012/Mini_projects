@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>My Performance</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>My Performance</h1>
+
+
+<div class="stats">
+
+<div class="stat-box">
+
+<h3>Total Exams</h3>
+
+<p>{{ total_exams }}</p>
+
+</div>
+
+
+<div class="stat-box">
+
+<h3>Average Score</h3>
+
+<p>{{ average }}%</p>
+
+</div>
+
+
+<div class="stat-box">
+
+<h3>Best Score</h3>
+
+<p>{{ best }}%</p>
+
+</div>
+
+
+<div class="stat-box">
+
+<h3>Exams Passed</h3>
+
+<p>{{ passed }}</p>
+
+</div>
+
+</div>
+
+
+<h2>Performance Improvement</h2>
+
+{% if improvement > 0 %}
+
+<div class="improvement positive">
+
+↑ Your performance improved by
+{{ improvement }}%
+
+</div>
+
+<p class="advice">
+
+Excellent! Keep practicing regularly
+to improve your score further.
+
+</p>
+
+{% elif improvement < 0 %}
+
+<div class="improvement negative">
+
+↓ Your performance decreased by
+{{ improvement|abs }}%
+
+</div>
+
+<p class="advice">
+
+Don't worry. Review your previous mistakes
+and practice more questions.
+
+</p>
+
+{% else %}
+
+<div class="improvement">
+
+Your performance is currently stable.
+
+</div>
+
+<p class="advice">
+
+Take more exams to identify your improvement.
+
+</p>
+
+{% endif %}
+
+
+<br>
+
+<a href="/history">
+<button>Result History</button>
+</a>
+
+<a href="/">
+<button>Dashboard</button>
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
