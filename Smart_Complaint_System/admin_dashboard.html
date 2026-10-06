@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Admin Dashboard - Smart Complaint System
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+
+    <!-- College Header -->
+
+    <header class="college-header">
+
+        <img src="{{ url_for('static', filename='logo.png') }}"
+             alt="ISTS College Logo"
+             class="college-logo">
+
+        <div class="college-details">
+
+            <h1>
+                INTERNATIONAL SCHOOL OF TECHNOLOGY AND SCIENCES FOR WOMEN
+            </h1>
+
+            <p>
+                NH-16, East Gonagudem, Rajanagaram,
+                East Godavari-533294
+            </p>
+
+            <p>
+                Phone: 9505506101 / 9505506119 |
+                www.ists.ac.in
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <a href="/admin/dashboard">
+            Admin Dashboard
+        </a>
+
+        <a href="/admin/logout">
+            Admin Logout
+        </a>
+
+    </nav>
+
+
+    <!-- Project Header -->
+
+    <section class="project-header">
+
+        <h2>
+            SMART COLLEGE COMPLAINT & PRIORITY MANAGEMENT SYSTEM
+        </h2>
+
+        <p>
+            Administrator Complaint Management Dashboard
+        </p>
+
+    </section>
+
+
+    <!-- Admin Section -->
+
+    <main class="admin-section">
+
+
+        <!-- Welcome -->
+
+        <div class="admin-welcome">
+
+            <h2>
+                Welcome, Administrator!
+            </h2>
+
+            <p>
+                View and manage complaints submitted by all students.
+            </p>
+
+        </div>
+
+
+        <!-- Messages -->
+
+        {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+                {% for message in messages %}
+
+                    <div class="message">
+                        {{ message }}
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+
+        <!-- Priority Statistics -->
+
+        <div class="admin-stats">
+
+            <div class="admin-stat-card">
+                <h3>Total Complaints</h3>
+                <p>{{ total_complaints }}</p>
+            </div>
+
+            <div class="admin-stat-card">
+                <h3>Critical</h3>
+                <p>{{ critical_count }}</p>
+            </div>
+
+            <div class="admin-stat-card">
+                <h3>High</h3>
+                <p>{{ high_count }}</p>
+            </div>
+
+            <div class="admin-stat-card">
+                <h3>Medium</h3>
+                <p>{{ medium_count }}</p>
+            </div>
+
+            <div class="admin-stat-card">
+                <h3>Low</h3>
+                <p>{{ low_count }}</p>
+            </div>
+
+        </div>
+
+
+        <!-- Status Statistics -->
+
+        <div class="admin-status-stats">
+
+            <div class="admin-stat-card">
+                <h3>Pending</h3>
+                <p>{{ pending_count }}</p>
+            </div>
+
+            <div class="admin-stat-card">
+                <h3>In Progress</h3>
+                <p>{{ progress_count }}</p>
+            </div>
+
+            <div class="admin-stat-card">
+                <h3>Resolved</h3>
+                <p>{{ resolved_count }}</p>
+            </div>
+
+        </div>
+
+
+        <!-- All Complaints -->
+
+        <div class="admin-table-container">
+
+            <h2>
+                All Student Complaints
+            </h2>
+
+
+            {% if complaints %}
+
+            <div class="table-container">
+
+                <table class="admin-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Student Name</th>
+
+                            <th>Email</th>
+
+                            <th>Department</th>
+
+                            <th>Title</th>
+
+                            <th>Description</th>
+
+                            <th>Category</th>
+
+                            <th>Location</th>
+
+                            <th>Priority</th>
+
+                            <th>Status</th>
+
+                            <th>Responsible Staff</th>
+
+                            <th>Date</th>
+
+                            <th>Update</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for complaint in complaints %}
+
+                        <tr>
+
+
+                            <td>
+                                {{ complaint["id"] }}
+                            </td>
+
+
+                            <td>
+                                {{ complaint["name"] }}
+                            </td>
+
+
+                            <td>
+                                {{ complaint["email"] }}
+                            </td>
+
+
+                            <td>
+                                {{ complaint["department"] }}
+                            </td>
+
+
+                            <td>
+                                {{ complaint["title"] }}
+                            </td>
+
+
+                            <td class="description-cell">
+
+                                {{ complaint["description"] }}
+
+                            </td>
+
+
+                            <td>
+                                {{ complaint["category"] }}
+                            </td>
+
+
+                            <td>
+                                {{ complaint["location"] }}
+                            </td>
+
+
+                            <!-- Priority -->
+
+                            <td>
+
+                                {% if complaint["priority"] == "Critical" %}
+
+                                    <span class="priority critical">
+                                        Critical
+                                    </span>
+
+                                {% elif complaint["priority"] == "High" %}
+
+                                    <span class="priority high">
+                                        High
+                                    </span>
+
+                                {% elif complaint["priority"] == "Medium" %}
+
+                                    <span class="priority medium">
+                                        Medium
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="priority low">
+                                        Low
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+
+                            <!-- Status -->
+
+                            <td>
+
+                                <span class="status">
+
+                                    {{ complaint["status"] }}
+
+                                </span>
+
+                            </td>
+
+
+                            <!-- Responsible Staff -->
+
+                            <td class="staff-cell">
+
+                                {% if complaint["staff_name"] %}
+
+                                    <strong>
+                                        {{ complaint["staff_name"] }}
+                                    </strong>
+
+                                    <br>
+
+                                    <span class="staff-role">
+                                        {{ complaint["staff_role"] }}
+                                    </span>
+
+                                    <br>
+
+                                    <span class="staff-phone">
+                                        📞 {{ complaint["staff_phone"] }}
+                                    </span>
+
+                                    <br>
+
+                                    <span class="staff-email">
+                                        {{ complaint["staff_email"] }}
+                                    </span>
+
+                                {% else %}
+
+                                    <span>
+                                        Not Assigned
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+
+                            <!-- Date -->
+
+                            <td>
+                                {{ complaint["created_at"] }}
+                            </td>
+
+
+                            <!-- Update Status -->
+
+                            <td>
+
+                                <form
+                                    method="POST"
+                                    action="/admin/update_status/{{ complaint['id'] }}"
+                                    class="status-form"
+                                >
+
+                                    <select name="status">
+
+                                        <option value="Pending"
+                                            {% if complaint["status"] == "Pending" %}
+                                                selected
+                                            {% endif %}
+                                        >
+                                            Pending
+                                        </option>
+
+                                        <option value="In Progress"
+                                            {% if complaint["status"] == "In Progress" %}
+                                                selected
+                                            {% endif %}
+                                        >
+                                            In Progress
+                                        </option>
+
+                                        <option value="Resolved"
+                                            {% if complaint["status"] == "Resolved" %}
+                                                selected
+                                            {% endif %}
+                                        >
+                                            Resolved
+                                        </option>
+
+                                    </select>
+
+
+                                    <button type="submit">
+                                        Update
+                                    </button>
+
+                                </form>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            {% else %}
+
+            <div class="no-complaints">
+
+                <h3>
+                    No Complaints Found
+                </h3>
+
+                <p>
+                    There are currently no student complaints.
+                </p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Smart College Complaint & Priority Management System
+        </p>
+
+        <p>
+            International School of Technology and Sciences for Women
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

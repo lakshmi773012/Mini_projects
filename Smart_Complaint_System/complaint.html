@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Complaint - Smart Complaint System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="college-header">
+        <img src="{{ url_for('static', filename='logo.png') }}"
+             alt="ISTS College Logo"
+             class="college-logo">
+
+        <div class="college-details">
+            <h1>INTERNATIONAL SCHOOL OF TECHNOLOGY AND SCIENCES FOR WOMEN</h1>
+            <p>NH-16, East Gonagudem, Rajanagaram, East Godavari-533294</p>
+            <p>Phone: 9505506101 / 9505506119 | www.ists.ac.in</p>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/complaint">Submit Complaint</a>
+        <a href="/logout">Logout</a>
+    </nav>
+
+    <section class="project-header">
+        <h2>SMART COLLEGE COMPLAINT & PRIORITY MANAGEMENT SYSTEM</h2>
+        <p>Submit your complaint and our system will automatically detect its priority</p>
+    </section>
+
+    <main class="form-section">
+
+        <div class="form-container complaint-container">
+
+            <h2>Submit a Complaint</h2>
+
+            <p class="form-description">
+                Please provide the details of your complaint
+            </p>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="message">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <form method="POST">
+
+                <label for="title">
+                    Complaint Title
+                </label>
+
+                <input type="text"
+                       id="title"
+                       name="title"
+                       placeholder="Enter complaint title"
+                       required>
+
+                <label for="description">
+                    Complaint Description
+                </label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    placeholder="Describe your complaint clearly"
+                    rows="5"
+                    required></textarea>
+
+                <label for="category">
+                    Category
+                </label>
+
+                <select id="category"
+                        name="category"
+                        required>
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                    <option value="Academic">
+                        Academic
+                    </option>
+
+                    <option value="Classroom">
+                        Classroom
+                    </option>
+
+                    <option value="Hostel">
+                        Hostel
+                    </option>
+
+                    <option value="Transport">
+                        Transport
+                    </option>
+
+                    <option value="Canteen">
+                        Canteen
+                    </option>
+
+                    <option value="Electricity">
+                        Electricity
+                    </option>
+
+                    <option value="Water">
+                        Water
+                    </option>
+
+                    <option value="Cleanliness">
+                        Cleanliness
+                    </option>
+
+                    <option value="Internet">
+                        Internet / Wi-Fi
+                    </option>
+
+                    <option value="Security">
+                        Security
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+                <label for="location">
+                    Location
+                </label>
+
+                <input type="text"
+                       id="location"
+                       name="location"
+                       placeholder="Example: Block A, Room 204"
+                       required>
+
+                <button type="submit">
+                    Submit Complaint
+                </button>
+
+            </form>
+
+            <p class="bottom-link">
+                <a href="/dashboard">
+                    ← Back to Dashboard
+                </a>
+            </p>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Smart College Complaint & Priority Management System</p>
+        <p>International School of Technology and Sciences for Women</p>
+    </footer>
+
+</body>
+</html>

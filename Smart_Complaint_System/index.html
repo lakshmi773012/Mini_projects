@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart College Complaint System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="college-header">
+        <img src="{{ url_for('static', filename='logo.png') }}"
+             alt="ISTS College Logo"
+             class="college-logo">
+
+        <div class="college-details">
+            <h1>INTERNATIONAL SCHOOL OF TECHNOLOGY AND SCIENCES FOR WOMEN</h1>
+            <p>NH-16, East Gonagudem, Rajanagaram, East Godavari-533294</p>
+            <p>Phone: 9505506101 / 9505506119 | www.ists.ac.in</p>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <a href="/register">Student Registration</a>
+        <a href="/login">Student Login</a>
+        <a href="/admin/login">Admin Login</a>
+    </nav>
+
+    <section class="project-header">
+        <h2>SMART COLLEGE COMPLAINT & PRIORITY MANAGEMENT SYSTEM</h2>
+        <p>Submit, track and manage college complaints easily</p>
+    </section>
+
+    <main class="home-section">
+
+        <div class="home-container">
+
+            <h2>Welcome to Smart Complaint System</h2>
+
+            <p>
+                This system allows students to submit college complaints,
+                automatically detects complaint priority and helps the
+                administration manage complaints efficiently.
+            </p>
+
+            <div class="home-buttons">
+
+                <a href="/register" class="home-button">
+                    Student Registration
+                </a>
+
+                <a href="/login" class="home-button">
+                    Student Login
+                </a>
+
+                <a href="/admin/login" class="home-button">
+                    Admin Login
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Smart College Complaint & Priority Management System</p>
+        <p>International School of Technology and Sciences for Women</p>
+    </footer>
+
+</body>
+</html>

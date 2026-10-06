@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Smart Complaint System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="college-header">
+        <img src="{{ url_for('static', filename='logo.png') }}"
+             alt="ISTS College Logo"
+             class="college-logo">
+
+        <div class="college-details">
+            <h1>INTERNATIONAL SCHOOL OF TECHNOLOGY AND SCIENCES FOR WOMEN</h1>
+            <p>NH-16, East Gonagudem, Rajanagaram, East Godavari-533294</p>
+            <p>Phone: 9505506101 / 9505506119 | www.ists.ac.in</p>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/complaint">Submit Complaint</a>
+        <a href="/logout">Logout</a>
+    </nav>
+
+    <section class="project-header">
+        <h2>SMART COLLEGE COMPLAINT & PRIORITY MANAGEMENT SYSTEM</h2>
+        <p>Student Dashboard</p>
+    </section>
+
+    <main class="dashboard-section">
+
+        <div class="welcome-box">
+            <h2>Welcome, {{ session["student_name"] }}!</h2>
+            <p>Track and manage your college complaints from here.</p>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+                <h3>Total Complaints</h3>
+                <p>{{ total_complaints }}</p>
+            </div>
+
+            <div class="stat-card critical-card">
+                <h3>Critical</h3>
+                <p>{{ critical_count }}</p>
+            </div>
+
+            <div class="stat-card high-card">
+                <h3>High</h3>
+                <p>{{ high_count }}</p>
+            </div>
+
+            <div class="stat-card medium-card">
+                <h3>Medium</h3>
+                <p>{{ medium_count }}</p>
+            </div>
+
+            <div class="stat-card low-card">
+                <h3>Low</h3>
+                <p>{{ low_count }}</p>
+            </div>
+
+        </div>
+
+        <div class="dashboard-action">
+            <a href="/complaint" class="complaint-button">
+                + Submit New Complaint
+            </a>
+        </div>
+
+        <div class="complaints-container">
+
+            <h2>My Complaints</h2>
+
+            {% if complaints %}
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Location</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {% for complaint in complaints %}
+
+                        <tr>
+
+                            <td>{{ complaint["id"] }}</td>
+
+                            <td>{{ complaint["title"] }}</td>
+
+                            <td>{{ complaint["category"] }}</td>
+
+                            <td>{{ complaint["location"] }}</td>
+
+                            <td>
+
+                                {% if complaint["priority"] == "Critical" %}
+
+                                    <span class="priority critical">
+                                        Critical
+                                    </span>
+
+                                {% elif complaint["priority"] == "High" %}
+
+                                    <span class="priority high">
+                                        High
+                                    </span>
+
+                                {% elif complaint["priority"] == "Medium" %}
+
+                                    <span class="priority medium">
+                                        Medium
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="priority low">
+                                        Low
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+                            <td>
+                                <span class="status">
+                                    {{ complaint["status"] }}
+                                </span>
+                            </td>
+
+                            <td>
+                                {{ complaint["created_at"] }}
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            {% else %}
+
+            <div class="no-complaints">
+
+                <h3>No Complaints Yet</h3>
+
+                <p>
+                    You have not submitted any complaints.
+                </p>
+
+                <a href="/complaint" class="complaint-button">
+                    Submit Your First Complaint
+                </a>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Smart College Complaint & Priority Management System</p>
+        <p>International School of Technology and Sciences for Women</p>
+    </footer>
+
+</body>
+</html>
