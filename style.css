@@ -1,0 +1,774 @@
+/* ---------------------------------------------------------
+   GENERAL PAGE
+--------------------------------------------------------- */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eef4fa;
+    color: #333;
+}
+
+
+/* ---------------------------------------------------------
+   COLLEGE HEADER
+--------------------------------------------------------- */
+
+.college-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    background-color: white;
+    padding: 15px 30px;
+    box-sizing: border-box;
+}
+
+.college-logo {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.college-details {
+    text-align: center;
+}
+
+.college-details h1 {
+    margin: 0;
+    color: #7b168f;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.college-details p {
+    margin: 6px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+
+/* ---------------------------------------------------------
+   NAVIGATION
+--------------------------------------------------------- */
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #123d70;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    background-color: #8d2c86;
+}
+
+
+/* ---------------------------------------------------------
+   PROJECT HEADER
+--------------------------------------------------------- */
+
+.project-header {
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 25px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.project-header h2 {
+    margin: 0;
+    color: #123d70;
+    font-size: 25px;
+}
+
+.project-header p {
+    margin-top: 8px;
+    color: #666;
+    font-size: 15px;
+}
+
+
+/* ---------------------------------------------------------
+   HOME PAGE
+--------------------------------------------------------- */
+
+.home-section {
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.home-container {
+    width: 700px;
+    max-width: 100%;
+    background-color: white;
+    padding: 45px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+}
+
+.home-container h2 {
+    color: #123d70;
+    margin-top: 0;
+}
+
+.home-container p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.home-buttons {
+    margin-top: 30px;
+}
+
+.home-button {
+    display: inline-block;
+    margin: 8px;
+    padding: 13px 25px;
+    background-color: #123d70;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.home-button:hover {
+    background-color: #8d2c86;
+}
+
+
+/* ---------------------------------------------------------
+   FORM SECTION
+--------------------------------------------------------- */
+
+.form-section {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 500px;
+    box-sizing: border-box;
+}
+
+.form-container {
+    width: 420px;
+    height: fit-content;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+}
+
+.login-container {
+    width: 400px;
+}
+
+.complaint-container {
+    width: 600px;
+}
+
+.admin-login-container {
+    width: 420px;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #123d70;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.form-description {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.form-container label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+.form-container textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+    outline: none;
+    border-color: #123d70;
+}
+
+.form-container button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 13px;
+    border: none;
+    border-radius: 5px;
+    background-color: #123d70;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.form-container button:hover {
+    background-color: #8d2c86;
+}
+
+
+/* ---------------------------------------------------------
+   FLASH MESSAGE
+--------------------------------------------------------- */
+
+.message {
+    background-color: #e8f4ff;
+    color: #123d70;
+    border: 1px solid #b7d7f5;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+/* ---------------------------------------------------------
+   BOTTOM LINK
+--------------------------------------------------------- */
+
+.bottom-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.bottom-link a {
+    color: #123d70;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.bottom-link a:hover {
+    color: #8d2c86;
+}
+
+
+/* ---------------------------------------------------------
+   DASHBOARD
+--------------------------------------------------------- */
+
+.dashboard-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 0 50px;
+}
+
+.welcome-box {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.welcome-box h2 {
+    margin: 0;
+    color: #123d70;
+}
+
+.welcome-box p {
+    color: #666;
+    margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   STATISTICS
+--------------------------------------------------------- */
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: white;
+    padding: 20px 10px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card h3 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    color: #555;
+}
+
+.stat-card p {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #123d70;
+}
+
+.critical-card p {
+    color: #d00000;
+}
+
+.high-card p {
+    color: #e67e00;
+}
+
+.medium-card p {
+    color: #d6a400;
+}
+
+.low-card p {
+    color: #16823b;
+}
+
+
+/* ---------------------------------------------------------
+   BUTTONS
+--------------------------------------------------------- */
+
+.dashboard-action {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.complaint-button {
+    display: inline-block;
+    background-color: #123d70;
+    color: white;
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.complaint-button:hover {
+    background-color: #8d2c86;
+}
+
+
+/* ---------------------------------------------------------
+   COMPLAINT TABLE
+--------------------------------------------------------- */
+
+.complaints-container {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+.complaints-container h2 {
+    color: #123d70;
+    margin-top: 0;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px;
+}
+
+table th {
+    background-color: #123d70;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 13px;
+}
+
+table tr:hover {
+    background-color: #f5f8fc;
+}
+
+
+/* ---------------------------------------------------------
+   PRIORITY LABELS
+--------------------------------------------------------- */
+
+.priority {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.priority.critical {
+    background-color: #ffd6d6;
+    color: #b00000;
+}
+
+.priority.high {
+    background-color: #ffe5c2;
+    color: #b45f00;
+}
+
+.priority.medium {
+    background-color: #fff2b8;
+    color: #8a6a00;
+}
+
+.priority.low {
+    background-color: #d8f5df;
+    color: #16733a;
+}
+
+
+/* ---------------------------------------------------------
+   STATUS
+--------------------------------------------------------- */
+
+.status {
+    display: inline-block;
+    background-color: #e8f4ff;
+    color: #123d70;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* ---------------------------------------------------------
+   ADMIN DASHBOARD
+--------------------------------------------------------- */
+
+.admin-section {
+    width: 94%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 0 50px;
+}
+
+.admin-welcome {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.admin-welcome h2 {
+    margin: 0;
+    color: #123d70;
+}
+
+
+/* ---------------------------------------------------------
+   ADMIN STATISTICS
+--------------------------------------------------------- */
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.admin-status-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.admin-stat-card {
+    background-color: white;
+    padding: 18px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+.admin-stat-card h3 {
+    margin: 0 0 8px;
+    color: #555;
+    font-size: 14px;
+}
+
+.admin-stat-card p {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: #123d70;
+}
+
+
+/* ---------------------------------------------------------
+   ADMIN TABLE
+--------------------------------------------------------- */
+
+.admin-table-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+.admin-table-container h2 {
+    color: #123d70;
+    margin-top: 0;
+}
+
+.admin-table {
+    min-width: 1250px;
+}
+
+.description-cell {
+    max-width: 250px;
+    line-height: 1.4;
+}
+
+.status-form {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-form select {
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.status-form button {
+    padding: 7px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #123d70;
+    color: white;
+    cursor: pointer;
+}
+
+.status-form button:hover {
+    background-color: #8d2c86;
+}
+
+
+/* ---------------------------------------------------------
+   NO COMPLAINTS
+--------------------------------------------------------- */
+
+.no-complaints {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.no-complaints h3 {
+    color: #123d70;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+
+footer {
+    text-align: center;
+    background-color: #123d70;
+    color: white;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+
+/* ---------------------------------------------------------
+   TABLET
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .stats-container,
+    .admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .admin-status-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .college-header {
+        flex-direction: column;
+        gap: 8px;
+        padding: 15px 10px;
+    }
+
+    .college-logo {
+        width: 90px;
+        height: 90px;
+    }
+
+    .college-details h1 {
+        font-size: 17px;
+    }
+
+    .college-details p {
+        font-size: 11px;
+        margin: 4px 0;
+    }
+
+    .navbar a {
+        padding: 12px 10px;
+        font-size: 13px;
+    }
+
+    .project-header h2 {
+        font-size: 19px;
+    }
+
+    .project-header p {
+        font-size: 13px;
+    }
+
+    .form-section {
+        padding: 25px 15px;
+        min-height: auto;
+    }
+
+    .form-container {
+        width: 100%;
+        padding: 25px 20px;
+    }
+
+    .login-container,
+    .complaint-container,
+    .admin-login-container {
+        width: 100%;
+    }
+
+    .dashboard-section {
+        width: 94%;
+        padding-top: 25px;
+    }
+
+    .stats-container,
+    .admin-stats,
+    .admin-status-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-box,
+    .admin-welcome {
+        padding: 20px 15px;
+    }
+
+    .complaints-container,
+    .admin-table-container {
+        padding: 18px 12px;
+    }
+
+    .home-container {
+        padding: 30px 20px;
+    }
+
+    footer {
+        font-size: 11px;
+    }
+}
+/* ---------------------------------------------------------
+   RESPONSIBLE STAFF
+--------------------------------------------------------- */
+
+.staff-cell {
+    min-width: 180px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.staff-cell strong {
+    color: #123d70;
+    font-size: 14px;
+}
+
+.staff-role {
+    color: #555;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.staff-phone {
+    color: #16823b;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.staff-email {
+    color: #777;
+    font-size: 11px;
+}
